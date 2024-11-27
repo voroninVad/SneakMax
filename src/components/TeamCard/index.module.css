@@ -1,0 +1,45 @@
+.people{
+    width: 380px;
+    height: 480px;
+    color: #FFFFFF;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.people img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+@media (width<= 1200px){
+    .people{
+        width: 280px;
+        height: 380px;
+    }
+    .people img{
+        height: 300px;
+    }
+}
+
+@media (width<= 1024px){
+    .people{
+        width: 180px;
+        height: 280px;
+    }   
+    .people img{
+        height: 200px;
+    }
+}
+
+@media (width<= 768px){ 
+    .people{
+        width: 100%;
+        height: 380px;
+    }   
+    .people img{
+        height: 300px;
+    }
+}

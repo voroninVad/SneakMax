@@ -1,0 +1,35 @@
+.modal-overlay{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    background-color: #444B58B2;
+}
+
+.modal-content{ 
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #FFF;
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    z-index: 4;
+}
+
+@media (width<= 750px){
+    .modal-content{
+        width: 80%;
+    }
+}
+@media (width<= 480px){
+    .modal-content{
+        width: 95%;
+    }
+}

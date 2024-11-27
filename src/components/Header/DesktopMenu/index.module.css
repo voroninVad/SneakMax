@@ -1,0 +1,30 @@
+.container_desktop{
+    width: 100%;
+}
+.nav_menu {
+  width: 680px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_menu .menu_item {
+  list-style: none;
+}
+
+.nav_menu .menu_item a {
+  font-family: var(--intro-bold);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+@media (width<= 1200px){
+    .nav_menu {
+        width: 100%;
+      }
+}

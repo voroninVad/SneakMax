@@ -1,0 +1,57 @@
+.team{
+    height: 1190px;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.team::before{
+    position: absolute;
+    content: '';
+    width: 541px;
+    height: 550px;
+    background-image: url('../../assets/figureTeam.png');
+    top: 0;
+    right: 0;
+}
+
+.container_team{
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.container_team h2{
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.list_team{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media (width<= 1200px){
+    .team{
+        padding: 50px 15px;
+        height: auto;
+    }
+}
+
+@media (width<= 768px){    
+    .team::before{
+        display: none;
+    }
+    .list_team{
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media (width<= 480px){
+    .list_team{
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+    }
+}

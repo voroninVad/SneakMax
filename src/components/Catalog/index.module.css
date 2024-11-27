@@ -1,0 +1,250 @@
+.container {
+  max-width: 1210px;
+  margin: 0 auto;
+}
+
+.catalog {
+  padding: 60px 0;
+}
+
+.catalog h2 {
+  font-family: var(--intro-bold);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.catalog__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter_size {
+  width: 240px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.filter_size{
+  list-style: none;
+}
+
+.filter_size label {
+  width: 80px;
+  height: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dbbba9;
+}
+
+.filter_size input{
+  display: none;
+}
+
+.filter_size input:checked ~ label{
+  border: 1px solid var(--accent-color);
+}
+
+.selection {
+  width: 280px;
+  height: 597px;
+  margin-right: 20px;
+  background: var(--sec-bg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selection h3 {
+  width: 90%;
+  font-family: var(--intro-book);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.selection .price {
+  width: 100%;
+  height: 86px;
+}
+
+.input_price{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input_price::before{
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 30px;
+  background-color: var(--gray-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input_price input {
+  outline: none;
+  border: 1px solid var(--gray-color);
+  width: 50%;
+  height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+.input_price input:first-child{
+  border-right: none;
+  border-top-left-radius: 4px;
+}
+.input_price input:last-child{
+  border-left: none;
+  border-top-right-radius: 4px;
+}
+
+
+.input_price::-webkit-outer-spin-button,
+.input_price::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.filter_gender{
+  display: flex;
+  justify-content: space-between;
+}
+
+.selection .gender {
+  width: 100%;
+  height: 50px;
+}
+
+.gender label {
+  width: 97px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--intro-book);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+label .input {
+  color: inherit;
+  border: 1px solid #DBBBA9;
+}
+
+.selection .apply_btn {
+  padding: 22px 48px 22px 48px;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--text-color);
+  color: #ffffff;
+}
+
+.apply_btn:hover{
+  background-color: #31343C;
+  ;
+}
+
+.selection .reset_btn {
+  font-family: var(--intro-regular);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.sneakers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items_sneaker {
+  max-width: 880px;
+
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 20px;
+}
+
+.sneakers button {
+  padding: 22px 47px 22px 47px;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--accent-color);
+  font-family: var(--intro-regular);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sneakers button:hover {
+  background: #cc4949;
+}
+
+.sneakers button:active {
+  background: #8c2828;
+}
+
+.BtnCloseModal{
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+
+@media (width<= 1200px) {
+  .catalog {
+    padding: 60px 30px;
+  }
+  .items_sneaker{
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (width<= 768px){
+  .catalog__content{
+    display: block;
+  }
+  .selection{
+    margin: 0;
+  }
+  dialog, dialog::backdrop{
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    opacity: 0;
+    scale: 1.05;
+    transition-duration: 0.2s;
+    transition-behavior: allow-discrete;
+  }
+  dialog[open], dialog[open]::backdrop{
+    opacity: 1;
+    scale: 1;
+
+    @starting-style{
+      opacity: 0;
+      scale: 1.05;
+    }
+  }
+  dialog[open]::backdrop{
+    width: 100vw;
+  }
+}

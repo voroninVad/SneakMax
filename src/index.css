@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Intro";
+  src: local("Intro Light"), local("Intro-Light"),
+    url("font/Intro-Light.woff2") format("woff2"),
+    url("font/Intro-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Intro Book";
+  src: local("Intro Book"), local("Intro-Book"),
+    url("font/Intro-Book.woff2") format("woff2"),
+    url("font/Intro-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Intro-Regular";
+  src: url("../fonts/intro-regular/intro-regular.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/intro-regular/intro-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/intro-regular/intro-regular.otf")
+      format("opentype"),
+    /* Open Type Font */ url("../fonts/intro-regular/intro-regular.svg")
+      format("svg"),
+    /* Legacy iOS */ url("../fonts/intro-regular/intro-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/intro-regular/intro-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/intro-regular/intro-regular.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Intro-Bold";
+  src: url("../fonts/intro-bold/intro-bold.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/intro-bold/intro-bold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/intro-bold/intro-bold.otf") format("opentype"),
+    /* Open Type Font */ url("../fonts/intro-bold/intro-bold.svg") format("svg"),
+    /* Legacy iOS */ url("../fonts/intro-bold/intro-bold.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/intro-bold/intro-bold.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/intro-bold/intro-bold.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Intro", sans-serif;
+}
+
+:root {
+  --intro-regular: "Intro-Regular", sans-serif;
+  --intro-bold: "Intro-Bold", sans-serif;
+  --intro-book: "Intro Book", sans-serif;
+  --intro: "Intro", sans-serif;
+  --bg-color: #484283;
+  --accent-color: #f14f4f;
+  --text-color: #444b58;
+  --small-text-color: #dbbba9;
+  --sec-bg: #fff4ee;
+  --gray-color: #b2b5bb;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.slider {
+  color: var(--text-color);
+  font-size: 16px;
+  margin-bottom: 29px;
+}
+
+
+.noUi-horizontal {
+  height: 4px !important;
+}
+
+.slider .noUi-target{
+  width: 100% !important;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%);
+  background: none;
+  border: none;
+}
+
+.slider .noUi-connect{
+  background: #444b58;
+}
+.slider .noUi-handle{
+  width: 6px !important;
+  height: 20px !important;
+  background-color: #444b58;
+  box-shadow: none;
+  border: none;
+  top: -8px !important;
+  right: -3px !important;
+}
+
+.slider .noUi-handle::after, .slider .noUi-handle::before{
+  content: none;
+}

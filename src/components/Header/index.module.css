@@ -1,0 +1,92 @@
+header {
+  width: 100%;
+  background-color: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.container_header {
+  max-width: 1210px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 145px 55% 90px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px;
+}
+.container_header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: calc(100% - 30px);
+  height: 1px;
+  background-color: #ffffff;
+  transform: translateX(-50%);
+}
+
+.header__logo {
+  width: 145px;
+}
+
+.header__logo a,
+.container_header .card {
+  font-family: var(--intro-bold);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.container_header .card {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  border: none;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.container_header .card span {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  font-family: var(--intro-book);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+  top: 50%;
+  right: -7px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+
+}
+
+@media (width<= 1200px) {
+  .container_header {
+    grid-template-columns: 145px 65% 10%;
+    /* grid-template-columns: 145px 65% 6% 6%; параметры если решишь добавить избранноые*/
+  }
+}
+
+@media (width<= 768px) {
+  .container_header {
+    grid-template-columns: 70% 50px 15%;
+  }
+}
+
+@media (width<= 480px) {
+  .container_header {
+    grid-template-columns: 60% 50px 25%;
+  }
+}
