@@ -5,7 +5,7 @@ import style from "./index.module.css";
 import { AppDispatch } from "../../Redux/store";
 import { Sneakers } from "../../types";
 import { useDispatch } from "react-redux";
-import { postBasket } from "../../Redux/slices/basketSlice";
+import { postBasket } from "../../Redux/basket/basketSlice";
 
 type Props = {
   closeModal: () => void;
@@ -13,7 +13,6 @@ type Props = {
 };
 
 const ModalSneaker: FC<Props> = ({ data, closeModal }) => {
-  
   const dispatch = useDispatch<AppDispatch>();
   const [selectedSize, setSelectedSize] = useState(0);
   const handleAddBasket = (tovar: Sneakers) => {
@@ -26,7 +25,7 @@ const ModalSneaker: FC<Props> = ({ data, closeModal }) => {
         size: selectedSize,
       };
 
-      dispatch(postBasket(newItem))
+      dispatch(postBasket(newItem));
       closeModal();
     } else {
       alert("вы не выбрали размер");
@@ -34,10 +33,7 @@ const ModalSneaker: FC<Props> = ({ data, closeModal }) => {
   };
   return (
     <Modal>
-      <div
-      key={data.id}
-        className={style.containerSneaker}
-      >
+      <div key={data.id} className={style.containerSneaker}>
         <img src={data.imgUrl} alt={data.title} />
         <div className={style.info_tovar}>
           <div className={style.info_header}>
@@ -56,7 +52,12 @@ const ModalSneaker: FC<Props> = ({ data, closeModal }) => {
               {data.sizes.map((size) => (
                 <div className="">
                   <input type="radio" name="size" id={`size${size}`} />
-                  <label htmlFor={`size${size}`} onClick={() => setSelectedSize(size)}>{size}</label>
+                  <label
+                    htmlFor={`size${size}`}
+                    onClick={() => setSelectedSize(size)}
+                  >
+                    {size}
+                  </label>
                 </div>
               ))}
             </div>

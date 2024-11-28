@@ -1,3 +1,4 @@
+import { FC } from "react";
 import About from "../../components/About";
 import Catalog from "../../components/Catalog"
 import Contacts from "../../components/Contacts";
@@ -9,7 +10,11 @@ import Questions from "../../components/Questions";
 import Survey from "../../components/Survey";
 import Team from "../../components/Team";
 
-const PageHome = () => {
+type Props = {
+    nextStep: () => void;
+};
+
+const PageHome: FC<Props> = ({ nextStep }) => {
     return ( 
         <div className="SneakMax">
            <Header />
@@ -17,13 +22,13 @@ const PageHome = () => {
             <Hero />
             <Catalog/>
             <About />
-            {/* <Survey /> */}
+            <Survey nextStep={nextStep}/>
             <Team />
             <Questions />
             <Contacts/>
             <Instagram />
-            <Footer />
            </main>
+           <Footer />
          </div>
      );
 }

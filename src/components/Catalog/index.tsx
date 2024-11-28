@@ -4,7 +4,7 @@ import style from "./index.module.css";
 import SneakersCard from "../SneakersCard";
 import { Sneakers } from "../../types";
 import "nouislider/distribute/nouislider.css";
-import { changeLimit } from "../../Redux/slices/dataSlice";
+import { changeLimit } from "../../Redux/dataSlice";
 import CatalogFilter from "./CatalogFilter";
 import { useIsMobile } from "../../hooks/useMobile";
 

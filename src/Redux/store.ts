@@ -13,10 +13,10 @@
 // export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 import { configureStore } from "@reduxjs/toolkit";
-import sneakersSlice from "./slices/sneakersSlice";
-import basketSlice from "./slices/basketSlice";
-import dataSlice from "./slices/dataSlice.ts";
-import { teamSlice } from "./slices/teamSlice.ts";
+import sneakersSlice from "./sneakers/sneakersSlice.ts";
+import basketSlice from "./basket/basketSlice.ts";
+import dataSlice from "./dataSlice.ts";
+import { teamSlice } from "./team/teamSlice.ts";
 
 export const store = configureStore({
   reducer: {

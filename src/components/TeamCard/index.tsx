@@ -1,10 +1,10 @@
 import { FC } from "react";
 import style from "./index.module.css";
-import { ITeam } from "../../Redux/slices/teamSlice";
+import { ITeam } from "../../Redux/team/teamSlice";
 
 interface IProps {
-    data: ITeam;
-  }
+  data: ITeam;
+}
 const TeamCard: FC<IProps> = ({ data }) => {
   return (
     <li className={style.people}>

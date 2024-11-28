@@ -1,120 +1,102 @@
-// import { createSlice } from "@reduxjs/toolkit";
-// import { Sneakers, SneakersState } from "../../types/index";
-// import { getSneakers } from "../../api/sneakers/index";
+// Импортируем функции createAsyncThunk и createSlice из библиотеки Redux Toolkit
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// Импортируем библиотеку axios для выполнения HTTP-запросов
+import axios from "axios";
 
-// const initialState: SneakersState = {
-//   isLoading: false,
-//   data: [],
-//   isError: false,
-//   minPrice: 0,
-//   maxPrice: 0,
-//   basket: [],
-//   resultSum: 0,
-//   filter: [],
-//   filtermaxPrice: 0,
-//   filterminPrice: 0,
-//   filterSelectedSizes:[],
-//   statusFilter:false,
-//   filterGender: '',
-// };
+// Определяем интерфейс ISneakers для типизации данных кроссовок
+export interface Sneakers {
+  color: string;        // Цвет кроссовок
+  compound: string;     // Материал верха
+  country: string;      // Страна производства
+  description: string;  // Описание кроссовок
+  gender: string;       // Пол (мужской/женский)
+  id: number;           // Уникальный идентификатор
+  imgUrl: string;       // URL изображения
+  inStock: number;      // Количество на складе
+  oldPrice: number;     // Старая цена
+  price: number;        // Текущая цена
+  sizes: number[];      // Доступные размеры
+  stars: number;        // Рейтинг (звезды)
+  title: string;        // Название модели
+  vendorСode: string;   // Код производителя
+}
 
-// const sneakersSlice = createSlice({
-//   name: "sneakers",
-//   initialState,
-//   reducers: {
-//     addBasket: (state, { payload }) => {
-//       state.resultSum += payload.price;
-//       state.basket = [...state.basket, payload];
-//     },
-//     removeTovar: (state, { payload }) => {
-//       const tovarId = payload;
-//       const Tovar = state.basket.find((tovar) => tovar.id == tovarId);
-//       if (Tovar) {
-//         state.resultSum -= Tovar.price;
-//       }
-//       state.basket = state.basket.filter((tovar) => tovar.id !== tovarId);
-//     },
-//     filterTovar: (state, { payload }) => {
-//       state.filtermaxPrice = payload.maxPrice
-//       state.filterminPrice = payload.minPrice
-//       state.filterGender = payload.gender
-//       state.filterSelectedSizes = payload.sizes
-//       state.statusFilter = true
-//       state.filter = payload
-//       console.log(state.filter)
-//     },
-//     resetFilter: (state) =>{
-//       state.filtermaxPrice = 0
-//       state.filterminPrice = 0
-//       state.filterGender = ''
-//       state.filterSelectedSizes = []
-//       state.statusFilter = false
-//     }
-//   },
-//   extraReducers: (builder) => {
-//     builder.addCase(getSneakers.pending, (state) => {
-//       state.isLoading = true;
-//       state.isError = false;
-//     });
-//     builder.addCase(getSneakers.fulfilled, (state, { payload }) => {
-//       const formattedData = payload.map((item: Sneakers) => ({
-//         ...item,
-//         price: Number(item.price.toString().replace(/\s+/g, "")),
-//         oldPrice: Number(item.oldPrice.toString().replace(/\s+/g, "")),
-//       }));
-//       state.data = [...state.data, ...formattedData];
-//       const prices = formattedData.map((item: { price: number }) => item.price);
-//       state.maxPrice = Math.max(...prices);
-//       state.minPrice = Math.min(...prices);
-//       state.isLoading = false;
-//     });
-//     builder.addCase(getSneakers.rejected, (state) => {
-//       state.isLoading = false;
-//       state.isError = true;
-//     });
-//   },
-// });
-// export const { addBasket, removeTovar, filterTovar,resetFilter } = sneakersSlice.actions;
-// export default sneakersSlice.reducer;
+// Определяем интерфейс IParams для параметров фильтрации кроссовок
+interface Params {
+  priceFrom: number;    // Минимальная цена
+  priceTo: number;      // Максимальная цена
+  gender: string;       // Пол (мужской/женский)
+  sizes: number[];      // Массив доступных размеров
+}
 
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// // export const selectFilteredSneakers = (state: any) => {
-// //   // return state.data.filter((tovar: { price: number; size: []; }) =>{
-// //   //   const isPriceValid = tovar.price >= state.filter.minPrice && tovar.price <= state.filter.maxPrice;
-// //   //   const isSizeValid = state.filter.selectedSizes.length === 0 || state.filter.selectedSizes.includes(tovar.size); // Предполагается, что `tovar.size` - это доступный размер товара
-// //   //   return isPriceValid && isSizeValid;
-// //   // })
-// //   if (state.filter) {
-// //     return {
-// //       data: state.data.filter(
-// //       (tovar: { price: number; sizes: [] }) =>
-// //         tovar.price >= state.filter.minPrice &&
-// //         tovar.price <= state.filter.maxPrice &&
-// //         tovar.sizes === state.filter.selectedSizes
-// //     ),
-// //     minPrice: state.minPrice,
-// //     maxPrice: state.maxPrice,
-// //     isLoading: state.isLoading,
-// //     isError: state.isError,
-// //     basket: state.basket,
-// //     resultSum: state.resultSum,
-// //     filter: state.filter,
-// //   }
-// //   } else {
-// //     return {
-// //       data: state.data,
-// //       maxPrice: state.maxPrice,
-// //       minPrice: state.minPrice,
-// //       isLoading: state.isLoading,
-// //       isError: state.isError,
-// //       basket: state.basket,
-// //       resultSum: state.resultSum,
-// //       filter: state.filter,
-// //     };
-// //   }
-// //   // const filter = state.sneakers.filter; // Замените на Ваше состояние фильтрации
-// //   // if (filter.length === 0) {
-// //   //   return state.sneakers.data; // Возвращаем все товары, если размер не выбран
-// //   // }
-// //   // return state.sneakers.data.filter((tovar: { size: any; }) => filter.includes(tovar.size));
-// // };
+const BASE_URL: string = "https://959449313ee7f991.mokky.dev";
+
+// Создаем асинхронный экшен для получения кроссовок с учетом параметров фильтрации
+export const fetchSneakers = createAsyncThunk<Sneakers[], Params>(
+  // Название экшена
+  "sneakers/fetchSneakers",
+  async (params, { rejectWithValue }) => {
+    try {
+      // Формируем строку запроса для размеров, если они указаны
+      const sizesQuery = params.sizes
+        .map((value) => `sizes[]=${value}`)
+        // Преобразуем каждый размер в строку формата sizes[]=размер
+        // Объединяем размеры в одну строку через '&'
+        .join("&");
+  // Выполняем GET-запрос к API с параметрами фильтрации
+      const { data } = await axios.get<Sneakers[]>(
+        `${BASE_URL}/sneakers?price[from]=${params.priceFrom}&price[to]=${params.priceTo
+        }${params.gender ? `&gender=${params.gender}` : ""}${params.sizes.length ? `&${sizesQuery}` : ""
+        }`
+      );
+
+      localStorage.setItem("sneakers", JSON.stringify(data));
+      return data;
+    } catch (error) {
+      console.log(`Failed to fetch:`);
+      return rejectWithValue("Failed to fetch sneakers");
+    }
+  }
+);
+// Определяем интерфейс состояния для хранения данных о кроссовках
+interface IState {
+  data: Sneakers[];
+  minPrice: number;
+  maxPrice: number;
+  isLoading: boolean;
+  isError: boolean;
+  resultSum: number
+}
+// Начальное состояние с данными из локального хранилища или пустым массивом
+const initialState: IState = {
+  data: JSON.parse(localStorage.getItem("sneakers") || "[]"),
+  minPrice: 0,
+  maxPrice: 0,
+  isLoading: false,
+  isError: false,
+  resultSum: 0
+};
+
+export const sneakersSlice = createSlice({
+  name: "sneakers",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+     // Обрабатываем дополнительные редьюсеры для асинхронных действий
+    builder.addCase(fetchSneakers.fulfilled, (state, action) => {//проаускает товар с id 17 из-за сточной строки потом разберись
+     //state.data = action.payload;
+      const formattedData = action.payload.map((item: Sneakers) => ({
+        ...item,
+        price: Number(item.price.toString().replace(/\s+/g, "")),
+        oldPrice: Number(item.oldPrice.toString().replace(/\s+/g, "")),
+      }));
+      state.data = formattedData;
+      const prices = formattedData.map((item: { price: number }) => item.price);
+      state.maxPrice = Math.max(...prices);
+      state.minPrice = Math.min(...prices);
+      // Обновляем состояние данными из payload после успешного выполнения экшена
+    });
+  },
+});
+
+export default sneakersSlice.reducer;

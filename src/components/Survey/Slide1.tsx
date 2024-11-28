@@ -4,14 +4,14 @@ import boot from '../../assets/boot.png'
 import { FC } from "react";
 
 type Props = {
-    nextSlide: () => void;
+    nextStep: () => void;
 };
 
-const Slide1: FC<Props> = ({ nextSlide })  => {
+const Slide1: FC<Props> = ({ nextStep })  => {
     const items = new Array(6).fill('Элемент');
     return ( 
         <div className={style.slide}>
-            <HeaderSlide />
+            <HeaderSlide  title={'Мы подберем идеальную пару для вас'} desc={'Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями '} />
             <div className={style.slide_content}>
                 <h3>Какой тип кроссовок рассматриваете?</h3>
                 <div className={style.types_boot}>
@@ -28,7 +28,7 @@ const Slide1: FC<Props> = ({ nextSlide })  => {
             </div>
             <div className={style.nextSlide_btn}>
                 <span>1 из 3</span>
-                <button onClick={nextSlide}>Следующий шаг</button>
+                <button onClick={nextStep}>Следующий шаг</button>
             </div>
         </div>
      );

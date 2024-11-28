@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./index.module.css";
 import { AppDispatch, RootState } from "../../Redux/store";
-import { fetchTeam, ITeam } from "../../Redux/slices/teamSlice";
+import { fetchTeam, ITeam } from "../../Redux/team/teamSlice";
 import { useEffect } from "react";
 import TeamCard from "../TeamCard";
 

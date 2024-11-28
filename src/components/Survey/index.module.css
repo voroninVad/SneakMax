@@ -1,11 +1,13 @@
 .survey{
     background-color: #FFFFFF;
     padding: 0;
+    height: auto;
+    overflow: hidden;
 }
 
 .slide{
-    width: 1180px;
-    height: 658px;
+    max-width: 1180px;
+    height: auto;
     margin: 60px auto;
     padding: 50px 100px;
     
@@ -56,6 +58,10 @@
     height: 246px;    
 }
 
+.slide_content .banner{
+    width: 100%;
+}
+
 .types_boot{
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -65,22 +71,27 @@
 }
 
 .sizes_boot{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
     margin-bottom: 20px;
+    gap: 5%;
+}
+
+.boot label, .size_boot label {
+    max-width: 180px;
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
 }
 
 .boot{
-    width: 280px;
+    max-width: 280px;
     display: flex;
     flex-direction: column;
 }
 
-.boot label{
-    max-width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+.boot img{
+    width: 100%;
 }
 
 .nextSlide_btn{
@@ -89,10 +100,6 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    padding: 0 100px;
-    position: absolute;
-    left: 0;
-    bottom: 40px;
 }
 
 .nextSlide_btn button{
@@ -103,7 +110,7 @@
 }
 
 .slide_form{
-    width: 655px;
+    max-width: 655px;
     height: 399px;
     background-color: var(--small-text-color);
     display: flex;
@@ -134,10 +141,11 @@
 }
 
 .slide_form input{
-    width: 500px;
+    width: 100%;
     height: 60px;
     border: none;
     padding-left: 15px;
+    margin: 10px 0;
     color: var(--gray-color);
 }
 
@@ -147,4 +155,24 @@
     border-radius: 4px;
     background-color: var(--accent-color);
     color: #FFFFFF;
+}
+
+@media (width<= 480px){
+    .sizes_boot{
+        grid-template-columns: repeat(2,auto);
+        gap: 10px;
+    }
+    .slide_content textarea{
+        width: 100%;
+    }
+}
+
+@media (width<= 768px) {
+    .slide{
+        padding: 20px 15px;
+    }
+    .types_boot{
+        grid-template-columns: repeat(2, auto);
+        justify-content: center
+    }
 }

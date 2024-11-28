@@ -3,20 +3,20 @@ import style from "./index.module.css";
 import { FC } from "react";
 
 type Props = {
-    nextSlide: () => void;
+    nextStep: () => void;
 };
 
-const Slide3: FC<Props> = ({ nextSlide })  => {
+const Slide3: FC<Props> = ({ nextStep })  => {
     return ( 
         <div className={style.slide}>
-            <HeaderSlide title={'Ваша подборка готова!'} desc={'Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями'}/>
+            <HeaderSlide title={'Мы подберем идеальную пару для вас'} desc={'Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями '}/>
             <div className={style.slide_content}>
                 <h3>Уточните какие-либо моменты</h3>
                 <textarea name="comment" placeholder="Введите сообщение"></textarea>
             </div>
             <div className={style.nextSlide_btn}>
                 <span>3 из 3</span>
-                <button onClick={nextSlide}>Следующий шаг</button>
+                <button onClick={nextStep}>Следующий шаг</button>
             </div>
         </div>
      );

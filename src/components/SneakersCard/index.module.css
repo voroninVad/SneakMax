@@ -40,16 +40,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: display 5s ease-out;
+  transition: all 5s ease-out;
 }
 
 .panel_hover button{
   width: 25%;
-  height: 25%;
+  display: flex;
+  align-items: center;
   border-radius: 50%;
   background-color: var(--text-color);
-  padding: 0;
+  padding: 20px;
   margin-top: 30px;
+}
+
+.panel_hover button img{
+  
 }
 
 .panel_hover button:hover{

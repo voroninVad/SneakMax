@@ -3,8 +3,8 @@ import Modal from "../../features/Modal";
 import style from "./index.module.css";
 import { Basket } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState, } from "../../Redux/store";
-import { delBasket } from "../../Redux/slices/basketSlice";
+import { AppDispatch, RootState } from "../../Redux/store";
+import { delBasket } from "../../Redux/basket/basketSlice";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -13,16 +13,15 @@ type Props = {
 };
 
 const ModalBasket: FC<Props> = ({ closeModal, data }) => {
-  
   const dispatch = useDispatch<AppDispatch>();
   const resultSum = useSelector<RootState, number>(
     (state) => state.basket.resultSum
   );
 
-  const handleRemove = (tovarRemove:Basket) =>{
-    dispatch(delBasket(tovarRemove.id))
-  }
-  
+  const handleRemove = (tovarRemove: Basket) => {
+    dispatch(delBasket(tovarRemove.id));
+  };
+
   return (
     <Modal>
       <div className={style.containerBasket}>
@@ -79,7 +78,9 @@ const ModalBasket: FC<Props> = ({ closeModal, data }) => {
             <p>Итого:</p>
             <h3>{resultSum}</h3>
           </div>
-        <Link onClick={closeModal} to="/SneakMax/basket/">Перейти в корзину</Link>
+          <Link onClick={closeModal} to="/SneakMax/basket/">
+            Перейти в корзину
+          </Link>
         </div>
       </div>
     </Modal>
