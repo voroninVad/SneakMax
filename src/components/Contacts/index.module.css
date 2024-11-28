@@ -1,0 +1,127 @@
+.contacts{
+    background-color: #F3F6F6;
+    padding: 0 15px;
+    height: auto;
+}
+
+.left_content h3{
+    font-family: var(--intro-bold);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    color: #444B58;
+    margin-bottom: 60px;
+}
+
+.container_contacts{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 60px 0;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, auto);
+}
+
+.contact{
+    margin: 40px 0;
+    height: auto;
+}
+
+.contact .contact_title{
+    font-family: var(--intro-book);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+    color: #B2B5BB;
+}
+
+.contact .tel{
+    font-family: var(--intro-regular);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 42px;
+    text-align: left;
+    color: #444B58;
+    margin: 20px 0;
+}
+
+.social{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left_content .link_social{
+    width: 44px;
+    height: 44px;
+    background-color: #0E5A4C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rigth_map{
+    min-width: 680px;
+    height: 497.41px;
+}
+
+.tooltipContainer {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    color: #444B58;
+  }
+  
+  .questionMark {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .tooltip {
+    width: 426px;
+    visibility: visible;
+    background-color: #FFFFFF;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Позиция относительно вопросительного знака */
+    left: 50%;
+    margin-left: -10px;
+    opacity: 0.9; /* Полупрозрачность */
+    color: #444B58;
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Внизу комментария */
+    left: 15px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #FFFFFF transparent transparent transparent; /* Треугольник-указатель */
+  }
+
+  @media (width<= 1024px) {
+    .container_contacts{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+  }
+  @media (width<= 768px){
+    .rigth_map{
+        min-width: 0;
+        max-width: 100%;
+    }
+  }
