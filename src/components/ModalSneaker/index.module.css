@@ -1,6 +1,5 @@
 .containerSneaker {
-  width: 1180px;
-  height: 878px;
+  max-width: 1180px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   position: relative;
@@ -13,7 +12,7 @@
 
 .info_tovar {
   width: 100%;
-  padding: 0 120px 0 20px;
+  padding: 0 20px;
 }
 
 .info_header {
@@ -59,18 +58,16 @@
   margin-top: 5px;
 }
 
-.sizes input{
+.sizes input {
   display: none;
 }
 
-.sizes input:checked ~ label{
+.sizes input:checked ~ label {
   border: 1px solid var(--accent-color);
 }
 
 .sizes label {
-  width: 70px;
-  height: 32px;
-  padding: 10px 26px 10px 26px;
+  padding: 10px 26px;
   gap: 10px;
   border-radius: 4px;
   border: 1px solid var(--gray-color);
@@ -79,7 +76,7 @@
 }
 
 .price_tovar {
-  width: 188px;
+  max-width: 188px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,22 +102,23 @@
   position: relative;
 }
 
-.price_tovar span::before{
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-    transform: rotate(-20deg);
+.price_tovar span::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: rotate(-20deg);
 }
 
 .order_tovar_btn {
   width: 100%;
   top: 460px;
   left: 600px;
-  padding: 22px 47px 22px 47px;
+  padding: 22px 47px;
+  font-size: 16px;
   gap: 10px;
   border-radius: 4px;
   background-color: var(--accent-color);
@@ -174,7 +172,7 @@
   margin: 5px 0;
 }
 
-.close_btn{
+.close_btn {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -183,4 +181,81 @@
   font-size: 30px;
   cursor: pointer;
   color: var(--base-red);
+}
+
+@media (width<=1200px) {
+}
+
+@media (width<=1024px) {
+  .containerSneaker {
+    font-size: 0.5rem;
+  }
+  .price_tovar {
+    margin: 30px 0;
+  }
+  .info_tovar h3 {
+    margin: 20px 0;
+    font-size: 1rem;
+  }
+  .sizes {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (width<=768px) {
+  .containerSneaker {  
+    height: 95%;
+    grid-template-rows: repeat(3, 33%);
+    grid-template-areas:
+      "img info"
+      "desc info"
+      "desc charac";
+      gap: 20px;
+  }
+
+  .containerSneaker h3{
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  .containerSneaker img{
+    grid-area: img;
+  }
+  .info_tovar{
+    grid-area: info;
+  }
+  .sizes{
+    gap: 10px;
+  }
+  .sizes label{    
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  .price_tovar{
+    margin: 0;
+  }
+  .price_tovar h2{
+    font-size: 20px;
+  }
+  .price_tovar span{
+    font-size: 12px;
+  }
+  .order_tovar_btn{
+    padding: 10px 20px;
+  }
+  .description{
+    grid-area: desc;
+  }
+  .description p{
+    font-size: 14px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .characteristics{
+    grid-area: charac;
+  }
+  .characteristics span{
+    font-size: 14px;
+  }
 }

@@ -67,6 +67,9 @@
     width: 200px;
     height: 250px;
   }
+  .panel_hover button{
+    padding: 10px;
+  }
 }
 
 @media (width<= 768px){

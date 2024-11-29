@@ -12,7 +12,7 @@
 
 .modal-content{ 
     width: auto;
-    height: auto;
+    height: 90%;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -21,6 +21,7 @@
     position: relative;
     top: 0;
     z-index: 4;
+    margin: 15px;
 }
 
 @media (width<= 750px){
