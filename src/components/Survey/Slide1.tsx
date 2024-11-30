@@ -1,37 +1,66 @@
 import HeaderSlide from "./HeaderSlide";
 import style from "./index.module.css";
-import boot from '../../assets/boot.png'
+import bootImg from "../../assets/boot.png";
 import { FC } from "react";
 
 type Props = {
-    nextStep: () => void;
+  nextStep: () => void;
 };
 
-const Slide1: FC<Props> = ({ nextStep })  => {
-    const items = new Array(6).fill('Элемент');
-    return ( 
-        <div className={style.slide}>
-            <HeaderSlide  title={'Мы подберем идеальную пару для вас'} desc={'Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями '} />
-            <div className={style.slide_content}>
-                <h3>Какой тип кроссовок рассматриваете?</h3>
-                <div className={style.types_boot}>
-                {items.map((index) => (
-                <div key={index} className={style.boot}>
-                    <img src={boot} alt="boot" />
-                    <label htmlFor={`${index}`}>
-                        <input type="radio" name="type" id={`${index}`} />
-                        кеды
-                    </label>
-                </div>
-                ))}
-                </div>
+const typeBoots = [
+  {
+    value: "кеды",
+    id: "0",
+  },
+  {
+    value: "кеды",
+    id: "1",
+  },
+  {
+    value: "кеды",
+    id: "2",
+  },
+  {
+    value: "кеды",
+    id: "3",
+  },
+  {
+    value: "кеды",
+    id: "4",
+  },
+  {
+    value: "кеды",
+    id: "5",
+  },
+];
+
+const Slide1: FC<Props> = ({ nextStep }) => {
+  return (
+    <div className={style.slide}>
+      <HeaderSlide
+        title={"Мы подберем идеальную пару для вас"}
+        desc={
+          "Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями "
+        }
+      />
+      <div className={style.slide_content}>
+        <h3>Какой тип кроссовок рассматриваете?</h3>
+        <div className={style.types_boot}>
+          {typeBoots.map((boot) => (
+            <div className={style.boot} key={boot.id}>
+              <img src={bootImg} alt="boot" />
+              <input className={style.input} type="checkbox" id={boot.id} />
+              <label htmlFor={boot.id}>{boot.value}</label>
             </div>
-            <div className={style.nextSlide_btn}>
-                <span>1 из 3</span>
-                <button onClick={nextStep}>Следующий шаг</button>
-            </div>
+          ))}
         </div>
-     );
-}
- 
+      </div>
+      <div className={style.nextSlide_btn}>
+        <span>1 из 3</span>
+        <button onClick={nextStep}>Следующий шаг</button>
+      </div>
+    </div>
+  );
+};
+
 export default Slide1;

@@ -2,7 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 
 type Props ={
-    i:string
+    textBtn: string
+    hrefBtn: string
 }
 
 const variants = {
@@ -23,14 +24,14 @@ const variants = {
 };
 
 
-export const MenuItem:React.FC<Props> = ({ i }) => {
+export const MenuItem:React.FC<Props> = ({ textBtn,hrefBtn }) => {
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <a href="#">{i}</a>
+      <a href={`${hrefBtn}`}>{textBtn}</a>
     </motion.li>
   );
 };

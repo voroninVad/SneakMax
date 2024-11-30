@@ -228,6 +228,7 @@
 @media (width<=768px) {
   .containerSneaker {  
     height: 95%;
+    grid-template-columns: repeat(1, auto);
     grid-template-rows: repeat(3, auto);
     grid-template-areas:
       "img img"

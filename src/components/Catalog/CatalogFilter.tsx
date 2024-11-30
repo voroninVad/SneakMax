@@ -122,15 +122,15 @@ const CatalogFilter = () => {
         <h4>Пол</h4>
         <div className={style.filter_gender}>
           {genders.map((gender) => (
-            <div className={style.input_gender} key={gender.label}>
-              <label htmlFor={gender.label}>
-                <input
+            <div className={style.input_chek} key={gender.label}>              
+              <input
                   className={style.input}
                   type="radio"
                   id={gender.label}
                   name="gender"
                   onChange={() => setValue("gender", gender.value)}
                 />
+                <label htmlFor={gender.label}>               
                 {gender.value}
               </label>
             </div>

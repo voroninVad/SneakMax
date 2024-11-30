@@ -17,10 +17,35 @@ const variants = {
 
 export const Navigation:FC<Props> = ({ style }) => (
   <motion.ul style={style} variants={variants}>
-    {itemIds.map(i => (
-      <MenuItem i={i} key={i} />
+    {typeBoots.map((i, index) => (
+      <MenuItem textBtn={i.value} hrefBtn={i.href} key={index} />
     ))}
   </motion.ul>
 );
 
-const itemIds = ["Каталог", "О нас", "Подбор товара", "Наша команда", "Доставка и оплата", "Контакты"];
+const typeBoots = [
+  {
+    value: "Каталог",
+    href: "#catalog",
+  },
+  {
+    value: "О нас",
+    href: "#about",
+  },
+  {
+    value: "Подбор товара",
+    href: "#survey",
+  },
+  {
+    value: "Наша команда",
+    href: "#team",
+  },
+  {
+    value: "Доставка и оплата",
+    href: "/SneakMax/basket/",
+  },
+  {
+    value: "Контакты",
+    href: "#contacts",
+  },
+];

@@ -25,9 +25,6 @@
   width: 240px;
   display: grid;
   grid-template-columns: repeat(3, auto);
-}
-
-.filter_size{
   list-style: none;
 }
 
@@ -119,7 +116,40 @@
 
 .filter_gender{
   display: flex;
-  justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input_chek {
+  display: flex;
+  align-items: center;
+}
+
+.input_chek input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.filter_gender label {
+  position: relative;
+  height: 24px;
+  line-height: 24px;
+  padding-left: 34px;
+}
+
+.filter_gender label::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgb(219, 187, 169);
+  margin: 2px;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+}
+
+.filter_gender input:checked + label::before {
+  background: url("../../assets/icon/check.png") no-repeat center;
 }
 
 .selection .gender {
