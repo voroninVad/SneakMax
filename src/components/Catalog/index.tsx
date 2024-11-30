@@ -7,6 +7,7 @@ import "nouislider/distribute/nouislider.css";
 import { changeLimit } from "../../Redux/dataSlice";
 import CatalogFilter from "./CatalogFilter";
 import { useIsMobile } from "../../hooks/useMobile";
+import filterIcon from '../../assets/icon/filter-filled.png'
 
 const Catalog = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -35,6 +36,7 @@ const Catalog = () => {
           <div>
             <button type="button" onClick={showModal}>
               фильтр
+              <img src={filterIcon} alt="" />
             </button>
             <dialog id="overlayFilter">
               <CatalogFilter />

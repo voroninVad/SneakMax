@@ -53,11 +53,7 @@
   margin-top: 30px;
 }
 
-.panel_hover button img{
-  
-}
-
-.panel_hover button:hover{
+.panel_hover button:hover, .panel_hover a:hover{
   background-color: #31343C;
 
 }
@@ -67,7 +63,7 @@
     width: 200px;
     height: 250px;
   }
-  .panel_hover button{
+  .panel_hover button,.panel_hover a{
     padding: 10px;
   }
 }
