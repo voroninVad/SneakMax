@@ -56,6 +56,10 @@ header {
   position: relative;
 }
 
+.container_header .card img{
+  width: 20px;
+}
+
 .container_header .card span {
   width: 16px;
   height: 16px;

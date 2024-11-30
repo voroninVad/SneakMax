@@ -28,7 +28,7 @@ const Catalog = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className={`${style.catalog} ${style.container}`}>
+    <div id="catalog" className={`${style.catalog} ${style.container}`}>
       <h2>Каталог</h2>
       <div className={style.catalog__content}>
         {isMobile ? (
@@ -55,8 +55,7 @@ const Catalog = () => {
           )} */}
 
           <div className={style.items_sneaker}>
-            {data
-              .filter((_, index) => index < limit)
+            {data.filter((_, index) => index < limit)
               .map((item: Sneakers) => (
                 <SneakersCard key={item.id} item={item} />
               ))}
@@ -76,3 +75,5 @@ const Catalog = () => {
 };
 
 export default Catalog;
+
+

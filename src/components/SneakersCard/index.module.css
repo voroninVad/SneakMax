@@ -43,7 +43,7 @@
   transition: all 5s ease-out;
 }
 
-.panel_hover button{
+.panel_hover a, .panel_hover button{
   width: 25%;
   display: flex;
   align-items: center;

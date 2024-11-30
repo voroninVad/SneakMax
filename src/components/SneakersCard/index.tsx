@@ -1,22 +1,18 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Sneakers } from "../../types";
 import style from "./index.module.css";
-import ModalSneaker from "../ModalSneaker";
 import Btnshow from "../../assets/Show.png";
 import BtnBasket from "../../assets/btn_basket.png";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../Redux/store";
 import { postBasket } from "../../Redux/basket/basketSlice";
+import { Link } from "react-router-dom";
 
 type Props = {
   item: Sneakers;
 };
 
 const SneakersCard: FC<Props> = ({ item }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const dispatch = useDispatch<AppDispatch>();
   const handleAddBasket = (tovar: Sneakers) => {
@@ -38,16 +34,14 @@ const SneakersCard: FC<Props> = ({ item }) => {
         <h3>{item.title}</h3>
         <span>{item.price} p.</span>
         <div className={style.panel_hover}>
-          <button onClick={openModal}>
+          <Link to={`/SneakMax/sneakers/${item.id}`}>          
             <img src={Btnshow} alt="" />
-          </button>
+          </Link>
           <button onClick={() => handleAddBasket(item)}>
             <img src={BtnBasket} alt="" />
           </button>
         </div>
       </div>
-
-      {isModalOpen && <ModalSneaker closeModal={closeModal} data={item} />}
     </>
   );
 };

@@ -23,7 +23,7 @@ const Contacts = () => {
         position:'relative',
     }
   return (
-    <section className={styl.contacts}>
+    <section id="contacts" className={styl.contacts}>
       <div className={styl.container_contacts}>
         <div className={styl.left_content}>
             <h3>Контакты</h3>
@@ -53,7 +53,7 @@ const Contacts = () => {
               width="560"
               height="400"
               frameBorder="1"
-              allowFullScreen="true"
+              allowFullScreen={true}
               style={class3}
             ></iframe>
           </div>

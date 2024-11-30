@@ -15,7 +15,7 @@ const Slide1: FC<Props> = ({ nextStep })  => {
             <div className={style.slide_content}>
                 <h3>Какой тип кроссовок рассматриваете?</h3>
                 <div className={style.types_boot}>
-                {items.map((item, index) => (
+                {items.map((index) => (
                 <div key={index} className={style.boot}>
                     <img src={boot} alt="boot" />
                     <label htmlFor={`${index}`}>

@@ -13,7 +13,7 @@ const Team = () => {
     dispatch(fetchTeam());
   }, [dispatch]);
   return (
-    <section className={style.team}>
+    <section id="team" className={style.team}>
       <div className={style.container_team}>
         <h2>Наша команда</h2>
         <ul className={style.list_team}>

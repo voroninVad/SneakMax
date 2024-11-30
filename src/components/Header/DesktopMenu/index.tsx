@@ -4,22 +4,22 @@ const DesktopMenu = () => {
   return (
     <ul className={style.nav_menu}>
       <li className={style.menu_item}>
-        <a href="#">Каталог</a>
+        <a href="#catalog">Каталог</a>
       </li>
       <li className={style.menu_item}>
-        <a href="#">О нас</a>
+        <a href="#about">О нас</a>
       </li>
       <li className={style.menu_item}>
-        <a href="#">Подбор товара</a>
+        <a href="#survey">Подбор товара</a>
       </li>
       <li className={style.menu_item}>
-        <a href="#">Наша команда</a>
+        <a href="#team">Наша команда</a>
       </li>
       <li className={style.menu_item}>
-        <a href="#">Доставка и оплата</a>
+        <a href="/SneakMax/basket/">Доставка и оплата</a>
       </li>
       <li className={style.menu_item}>
-        <a href="#">Контакты</a>
+        <a href="#contacts">Контакты</a>
       </li>
     </ul>
   );

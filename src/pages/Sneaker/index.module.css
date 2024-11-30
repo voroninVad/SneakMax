@@ -1,11 +1,28 @@
 .containerSneaker {
-  max-width: 1180px;
+  width: 60%;
+  max-height: 878px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  position: relative;
+  background-color: #ffffff;
+  border-radius: 4px;
   padding: 20px;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  overflow-y: auto;
 }
-
+.panel::after{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #444B58B2;
+  z-index: 3;
+}
 .containerSneaker img {
   width: 100%;
 }
@@ -184,11 +201,14 @@
 }
 
 @media (width<=1200px) {
+  .containerSneaker {
+    width: 95%;
+}
 }
 
 @media (width<=1024px) {
-  .containerSneaker {
-    font-size: 0.5rem;
+  .containerSneaker {  
+    height: 95%;
   }
   .price_tovar {
     margin: 30px 0;
@@ -205,10 +225,10 @@
 @media (width<=768px) {
   .containerSneaker {  
     height: 95%;
-    grid-template-rows: repeat(3, 33%);
+    grid-template-rows: repeat(3, auto);
     grid-template-areas:
-      "img info"
-      "desc info"
+      "img img"
+      "info info"
       "desc charac";
       gap: 20px;
   }
@@ -254,6 +274,7 @@
   }
   .characteristics{
     grid-area: charac;
+    padding: 0;
   }
   .characteristics span{
     font-size: 14px;

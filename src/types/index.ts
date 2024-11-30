@@ -5,17 +5,12 @@ export type State = {
   maxPrice: number;
   basket: Basket[];
   resultSum: number;
-  filtermaxPrice: number;
-  filterminPrice: number;
-  filterSelectedSizes: number[];
-  filterGender: string;
-  statusFilter: boolean;
 };
-export interface Filter  {
-    minPrice: number;
-    maxPrice: number;
-    gender:string;
-    sizes: number[];
+export interface Filter {
+  minPrice: number;
+  maxPrice: number;
+  gender: string;
+  sizes: number[];
 }
 export interface IState {
   data: Sneakers[];
@@ -24,13 +19,13 @@ export interface IState {
 }
 
 export interface Basket {
-    id: number;
-    title: string;
-    price: number;
-    size: number;
-    imgUrl: string;
-};
-export type Sneakers = {
+  id: number;
+  title: string;
+  price: number;
+  size: number;
+  imgUrl: string;
+}
+export interface Sneakers  {
   id: number;
   vendorСode: string;
   inStock: number;
@@ -49,11 +44,10 @@ export type Sneakers = {
 
 export type SneakersState = State & {
   data: Sneakers[];
-  filter: Filter[];
 };
 
 export interface Order {
-  name_user: string,
-  tel_user: string,
-  email_user: string, 
+  name_user: string;
+  tel_user: string;
+  email_user: string;
 }

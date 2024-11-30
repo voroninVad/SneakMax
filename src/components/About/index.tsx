@@ -3,7 +3,7 @@ import imgAbout from '../../assets/MaskGroup.png'
 
 const About = () => {
     return ( 
-        <section className={style.about}>
+        <section id='about' className={style.about}>
             <div className={style.about_description}>
                 <h3>Пара слов о нас</h3>
                 <p>Спорт держит нас в форме. Учит дисциплине. Объединяет нас. Через спорт мы можем менять жизни. В том числе с помощью воодушевляющих историй спортсменов. Чтобы помочь тебе подняться и двигаться вперед.</p>
