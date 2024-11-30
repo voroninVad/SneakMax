@@ -8,11 +8,12 @@ import { useParams } from "react-router-dom";
 import { fetchSneakerId } from "../../Redux/sneakers/sneakerSlise";
 import Hero from "../../components/Hero";
 import Header from "../../components/Header";
+import star from "../../assets/Star.png";
 
 const Sneaker = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const sneaker = useSelector<RootState, Sneakers[][]>(
+  const sneaker = useSelector<RootState, Sneakers[]>(
     (state) => state.sneaker.data
   );
   console.log(sneaker);
@@ -44,8 +45,8 @@ const Sneaker = () => {
       <Header />
       <Hero />
       <div className={style.panel}></div>
-      <div className=''>
-        {sneaker.map((data: Sneakers[[]]) => (
+      <div className="">
+        {sneaker.map((data: Sneakers) => (
           <div key={data.id} className={style.containerSneaker}>
             <img src={data.imgUrl} alt={data.title} />
             <div className={style.info_tovar}>
@@ -54,15 +55,15 @@ const Sneaker = () => {
                 <span>В наличии: {data.inStock} шт</span>
               </div>
               <h3>{data.title}</h3>
-              {data.stars && (
-                <span className={style.stars}>
-                  {"★".repeat(data.stars).replace(/&/g, "")}
-                </span>
-              )}
+              <div className={style.stars}>
+                {Array.from({ length: data.stars }, (_, index) => (
+                  <img className={style.star} key={index} src={star} />
+                ))}
+              </div>
               <div className={style.size_tovar}>
                 <p>Выберите размер</p>
                 <div className={style.sizes}>
-                  {data.sizes.map((size:number) => (
+                  {data.sizes.map((size: number) => (
                     <div className="">
                       <input type="radio" name="size" id={`size${size}`} />
                       <label

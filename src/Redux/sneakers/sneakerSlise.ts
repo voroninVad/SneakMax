@@ -6,11 +6,11 @@ import { Sneakers } from "../../types";
 
 const BASE_URL: string = "https://959449313ee7f991.mokky.dev";
 
-export const fetchSneakerId = createAsyncThunk<[Sneakers[]], string>(
+export const fetchSneakerId = createAsyncThunk<Sneakers[], string>(
     "sneaker/id",
     async (id,{rejectWithValue}) => {
       try {
-        const { data } = await axios.get<Sneakers[]>(
+        const { data } = await axios.get<Sneakers>(
             `${BASE_URL}/sneakers/${id}`
           );
           localStorage.setItem("sneaker", JSON.stringify(data));
@@ -23,7 +23,7 @@ export const fetchSneakerId = createAsyncThunk<[Sneakers[]], string>(
   );
 
   interface IState {
-    data: Sneakers[][];
+    data: Sneakers[];
   }
 
   const initialState: IState = {
