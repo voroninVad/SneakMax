@@ -9,6 +9,7 @@ import { fetchSneakerId } from "../../Redux/sneakers/sneakerSlise";
 import Hero from "../../components/Hero";
 import Header from "../../components/Header";
 import star from "../../assets/Star.png";
+import { color } from "motion/react";
 
 const Sneaker = () => {
   const { id } = useParams<{ id: string }>();
@@ -58,7 +59,7 @@ const Sneaker = () => {
             <div className={style.info_tovar}>
               <div className={style.info_header}>
                 <span>Артикул: {data.vendorСode}</span>
-                <span>В наличии: {data.inStock} шт</span>
+                <span>В наличии: <b style={{color:'#000'}}>{data.inStock} шт</b></span>
               </div>
               <h3>{data.title}</h3>
               <div className={style.stars}>
