@@ -11,7 +11,7 @@ const Contact: FC<Props> = ({ title, btn }) => {
   return (
     <div className={style.contact}>
       <span className={style.contact_title}>
-        {title}{" "}
+        {title}
         {btn ? (
           <div
             className={style.tooltipContainer}

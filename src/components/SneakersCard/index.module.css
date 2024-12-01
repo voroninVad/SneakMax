@@ -55,7 +55,6 @@
 
 .panel_hover button:hover, .panel_hover a:hover{
   background-color: #31343C;
-
 }
 
 @media (width<= 1024px) {

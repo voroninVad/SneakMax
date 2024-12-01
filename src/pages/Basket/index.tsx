@@ -36,12 +36,17 @@ const PageBasket = () => {
     history("/SneakMax/");
     basket.map((item) => dispatch(delBasket(item.id)));
   };
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.currentTarget === event.target) {
+        history('/SneakMax/')
+    }
+};
 
   return (
     <>
       <Header />
       <Hero />
-      <div className="panel"></div>
+      <div className="panel" onClick={handleOverlayClick}></div>
       <div className="container_basket">
         {basket.length === 0 ? (
           <h3> корзина пуста</h3>

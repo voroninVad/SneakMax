@@ -94,17 +94,17 @@
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Позиция относительно вопросительного знака */
+    bottom: 125%; 
     left: 50%;
     margin-left: -10px;
-    opacity: 0.9; /* Полупрозрачность */
+    opacity: 0.9; 
     color: #444B58;
   }
   
   .tooltip::after {
     content: '';
     position: absolute;
-    top: 100%; /* Внизу комментария */
+    top: 100%; 
     left: 15px;
     margin-left: -5px;
     border-width: 5px;
@@ -123,5 +123,12 @@
     .rigth_map{
         min-width: 0;
         max-width: 100%;
+    }
+    .tooltip{
+        left: 0;
+        margin-left: -100px;
+    }
+    .tooltip::after{
+        left: 110px;
     }
   }

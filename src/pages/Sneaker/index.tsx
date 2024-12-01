@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from "../../Redux/store";
 import { Sneakers } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
 import { postBasket } from "../../Redux/basket/basketSlice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchSneakerId } from "../../Redux/sneakers/sneakerSlise";
 import Hero from "../../components/Hero";
 import Header from "../../components/Header";
@@ -40,11 +40,17 @@ const Sneaker = () => {
       alert("вы не выбрали размер");
     }
   };
+  const history = useNavigate()
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.currentTarget === event.target) {
+        history('/SneakMax/')
+    }
+};
   return (
     <>
       <Header />
       <Hero />
-      <div className={style.panel}></div>
+      <div className={style.panel} onClick={handleOverlayClick}></div>
       <div className="">
         {sneaker.map((data: Sneakers) => (
           <div key={data.id} className={style.containerSneaker}>

@@ -21,6 +21,12 @@
   justify-content: space-between;
 }
 
+.catalog__content .filter{
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
 .filter_size {
   width: 240px;
   display: grid;
@@ -225,6 +231,10 @@ label .input {
   color: #ffffff;
 }
 
+.sneakers button:disabled{
+  opacity: 0.5;
+}
+
 .sneakers button:hover {
   background: #cc4949;
 }
@@ -246,6 +256,10 @@ label .input {
   .items_sneaker{
     grid-template-columns: repeat(2, auto);
   }
+}
+
+@media (width<=990px){
+  
 }
 
 @media (width<= 768px){

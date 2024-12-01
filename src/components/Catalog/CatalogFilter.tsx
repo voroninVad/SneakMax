@@ -71,7 +71,7 @@ const CatalogFilter = () => {
       })
     );
     setFilterPrice([data.minPrice, data.maxPrice]);
-    closeModal();
+    //closeModal();
   };
 
   const closeModal = () => {

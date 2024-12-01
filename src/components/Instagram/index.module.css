@@ -1,6 +1,7 @@
 .instagram {
   background-color: #ffffff;
   padding: 40px 15px 60px 15px;
+  height: auto;
 }
 
 .container_instagram {
@@ -115,11 +116,13 @@
 
 @media (width<= 1024px){
     .container_instagram{
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
-    .right_inst_img{
+    /* .right_inst_img{
         display: none;
-    }
+    } */
 }
 
 @media (width<= 768px){
