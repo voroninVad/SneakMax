@@ -4,6 +4,7 @@ import { CSSProperties, FC } from "react";
 
 type Props ={
   style?: CSSProperties
+  toggleClose: () => void 
 }
 
 const variants = {
@@ -15,10 +16,10 @@ const variants = {
   }
 };
 
-export const Navigation:FC<Props> = ({ style }) => (
+export const Navigation:FC<Props> = ({ style,toggleClose }) => (
   <motion.ul style={style} variants={variants}>
     {typeBoots.map((i, index) => (
-      <MenuItem textBtn={i.value} hrefBtn={i.href} key={index} />
+      <MenuItem toggleClose={toggleClose} textBtn={i.value} hrefBtn={i.href} key={index} />
     ))}
   </motion.ul>
 );

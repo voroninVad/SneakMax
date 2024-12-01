@@ -42,7 +42,7 @@ const MobileMenu = () => {
             className='menu__mobile'>
             <motion.div className='background' variants={sidebar} />            
             <MenuToggle toggle={() => toggleOpen()} />
-            <Navigation style={navStyle}/>
+            <Navigation toggleClose={ toggleOpen } style={navStyle}/>
         </motion.nav>
         
      );

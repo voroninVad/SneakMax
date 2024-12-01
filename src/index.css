@@ -1,4 +1,12 @@
-
+@font-face {
+  font-family: 'Intro';
+  src: url('../fonts/intro/intro.eot');
+  src: url('../fonts/intro/intro.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/intro/intro.woff') format('woff'),
+    url('../fonts/intro/intro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;

@@ -9,7 +9,6 @@ import { fetchSneakerId } from "../../Redux/sneakers/sneakerSlise";
 import Hero from "../../components/Hero";
 import Header from "../../components/Header";
 import star from "../../assets/Star.png";
-import { color } from "motion/react";
 
 const Sneaker = () => {
   const { id } = useParams<{ id: string }>();
