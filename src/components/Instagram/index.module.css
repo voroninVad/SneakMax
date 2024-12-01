@@ -130,3 +130,15 @@
         width: 100%;
     }
 }
+
+@media (width<= 480px){
+    .gallery{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .img_gallary:nth-child(3) img{
+        width: 150%;
+    }
+    .img_gallary:not(:nth-child(3)) img{
+        width: 100%;
+    }
+}

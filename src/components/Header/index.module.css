@@ -79,13 +79,12 @@ header {
 @media (width<= 1200px) {
   .container_header {
     grid-template-columns: 145px 65% 10%;
-    /* grid-template-columns: 145px 65% 6% 6%; параметры если решишь добавить избранноые*/
   }
 }
 
 @media (width<= 768px) {
   .container_header {
-    grid-template-columns: 70% 50px 15%;
+    grid-template-columns: 70% 10% 20%;
   }
 }
 

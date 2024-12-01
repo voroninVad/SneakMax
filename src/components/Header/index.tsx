@@ -20,7 +20,6 @@ const Header = () => {
   useEffect(() => {
     dispatch(fetchBasket());
   }, []);
-  //const { basket } = useSelector(sneakersSelector);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
 

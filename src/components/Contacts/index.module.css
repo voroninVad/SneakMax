@@ -125,6 +125,7 @@
         max-width: 100%;
     }
     .tooltip{
+        width: 300px;
         left: 0;
         margin-left: -100px;
     }
